@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import React from 'react'
 import SearchInput from './search-input'
+import AuthButton from '@/modules/auth/ui/components/auth-button'
 
 const HomeNavbar = () => {
   return (
@@ -22,6 +23,11 @@ const HomeNavbar = () => {
         {/* Search bar */}
         <div className='flex-1 flex justify-center max-w-[720px] mx-auto'>
           <SearchInput />
+        </div>
+
+        <div className='flex flex-shrink-0 items-center flex gap-4'>
+            <AuthButton />
+
         </div>
       </div>
     </nav>
