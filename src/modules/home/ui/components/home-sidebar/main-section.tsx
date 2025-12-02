@@ -4,7 +4,7 @@ import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, Side
 import { FlameIcon, HomeIcon } from 'lucide-react'
 import Link from 'next/link'
 import { MdOutlineSubscriptions } from 'react-icons/md'
-
+import { useAuth, useClerk } from '@clerk/nextjs'
 import React from 'react'
 
 const items =[
@@ -27,6 +27,8 @@ const items =[
 ]
 
 const MainSection = () => {
+    const { userId } = useAuth();
+    const clerk = useClerk();
   return (
     <SidebarGroup>
         <SidebarGroupContent>
@@ -37,7 +39,12 @@ const MainSection = () => {
                          tooltip={item.title}
                          asChild
                          isActive={false}
-                         onClick={() => {}}
+                         onClick={(e) => {
+                            if(!userId && item.auth){
+                               e.preventDefault();
+                               return clerk.openSignIn(); 
+                            }
+                         }}
                         >
                        <Link href={item.url} className='flex items-center gap-4'>
                         <item.icon />

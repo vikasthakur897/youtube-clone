@@ -1,6 +1,9 @@
+"use client"
+
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
 import { History, ListVideoIcon, ThumbsUpIcon } from 'lucide-react'
 import Link from 'next/link'
+import { useAuth, useClerk } from '@clerk/nextjs'
 
 import React from 'react'
 
@@ -26,6 +29,8 @@ const items =[
 ]
 
 const PersonalSection = () => {
+    const { userId } = useAuth();
+    const clerk = useClerk();
   return (
     <SidebarGroup>
         <SidebarGroupLabel>You</SidebarGroupLabel>
@@ -37,6 +42,12 @@ const PersonalSection = () => {
                          tooltip={item.title}
                          asChild
                          isActive={false}
+                         onClick={(e) => {
+                            if(!userId && item.auth){
+                               e.preventDefault();
+                               return clerk.openSignIn(); 
+                            }
+                         }}
                         >
                        <Link href={item.url} className='flex items-center gap-4'>
                         <item.icon />
