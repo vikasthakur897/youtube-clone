@@ -15,7 +15,7 @@ const HomeNavbar = () => {
         <SidebarTrigger />
         <Link href="/">
           <div className='p-4 flex items-center gap-2'>
-          <Image src="/youtube-logo.svg" alt='logo' width={32} height={32} />
+          <Image src="/YouTube_logo.svg" alt='logo' width={32} height={32} />
           <p className='text-xl font-semibold tracking-tight'>Youtube</p>
           </div>
         </Link>
