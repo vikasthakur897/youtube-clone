@@ -1,4 +1,4 @@
-import { CategoriesSection } from "../components/category-section";
+import { CategoriesSection } from "../sections/category-section";
 
 interface HomeViewProps {
   categoryId?: string;
