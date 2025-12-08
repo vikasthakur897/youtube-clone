@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 import AuthButton from '@/modules/auth/ui/components/auth-button'
 import ThemeModeToggle from '@/app/(home)/theme'
+import { StudioUploadModel } from '../studio-upload-modal'
 
 const StudioNavbar = () => {
   return (
@@ -30,6 +31,7 @@ const StudioNavbar = () => {
         </div>
 
         <div className='flex flex-shrink-0 items-center gap-4'>
+           <StudioUploadModel />
             <AuthButton />
 
         </div>
