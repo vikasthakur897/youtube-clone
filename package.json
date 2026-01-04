@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev:all": "concurrently \"bun run dev\"  \"dev:cloudflare\" ",
+    "dev:all": "concurrently \"bun run dev\"  \"bun run dev:webhook\" ",
     "dev:webhook": "ngrok http --domain=boyd-proliferative-right.ngrok-free.dev 3000",
     "dev:cloudflare": "cloudflared tunnel --url http://localhost:3000",
     "dev": "next dev",
