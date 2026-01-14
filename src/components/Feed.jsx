@@ -1,10 +1,10 @@
-import React, { use } from 'react'
+
 import { Box, Stack, Typography } from '@mui/material'
 import { useState, useEffect } from 'react'
 import Sidebar from './Sidebar'
 import Videos from './Videos'
 import  {fetchApi}  from '../utils/fetchApi'
-import VideoCard from './Videos'
+
 
 
 
@@ -30,9 +30,9 @@ const Feed = () => {
          {selectedCategory} <span style={{ color: 'white' }}>videos</span>
         </Typography>
         <Stack direction="row" flexWrap="wrap" gap={10}>
-        {videos.map((video) => (
-        <VideoCard key={video.id.videoId} videos={video} />
-      ))}
+        
+        <Videos  video={videos} />
+    
       </Stack>
 
       </Box>
